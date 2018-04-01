@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+ <br /> 
+<div class="row">
+
+    <h3>Add Package</h3>
+    <p>A tourist attraction is a place of interest where tourists visit</p>
+    <p>Add a photo with description of the place</p>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+            <input type="text" class="form-control" id="TouristPlace" name="TouristPlace" placeholder="Tourist Place">
+        </div>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+            <input type="text" class="form-control" id="Country" name="Country" placeholder="Country">
+        </div>
+        <br>
+    
+         
+        <div class="form-group">
+            <label for="comment">Description:</label>
+            <textarea class="form-control" rows="6" cols="10" id="Description" name="Description"></textarea>
+        </div>
+
+        <p>Select a photo of the location</p>
+
+        <label class="control-label">Select photo</label>
+
+        <div class="input-group image-preview">
+            <input name="files" id="files" type="file" accept="jpg,jpeg" />
+            <span class="input-group-btn">
+                <!-- image-preview-clear button -->
+                <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                    <span class="glyphicon glyphicon-remove"></span> Clear
+                </button>
+
+
+            </span>
+        </div>
+
+
+
+        <br>
+        <div class="input-group">
+            <button type="submit" class="btn btn-primary    center-block">Upload</button>
+        </div>
+    </form>
+
+
+
+</div>
