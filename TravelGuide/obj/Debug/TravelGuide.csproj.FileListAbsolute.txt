@@ -16,3 +16,7 @@ C:\Users\RamjinM\Desktop\Travel Guide\TravelGuide\TravelGuide\bin\System.Web.Mvc
 C:\Users\RamjinM\Desktop\Travel Guide\TravelGuide\TravelGuide\obj\Debug\TravelGuide.csprojResolveAssemblyReference.cache
 C:\Users\RamjinM\Desktop\Travel Guide\TravelGuide\TravelGuide\obj\Debug\TravelGuide.dll
 C:\Users\RamjinM\Desktop\Travel Guide\TravelGuide\TravelGuide\obj\Debug\TravelGuide.pdb
+C:\Users\RamjinM\Desktop\Travel Guide\TravelGuide\TravelGuide\bin\EntityFramework.dll
+C:\Users\RamjinM\Desktop\Travel Guide\TravelGuide\TravelGuide\bin\EntityFramework.SqlServer.dll
+C:\Users\RamjinM\Desktop\Travel Guide\TravelGuide\TravelGuide\bin\EntityFramework.xml
+C:\Users\RamjinM\Desktop\Travel Guide\TravelGuide\TravelGuide\bin\EntityFramework.SqlServer.xml

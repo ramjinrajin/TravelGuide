@@ -11,10 +11,14 @@ namespace TravelGuide.Models.Properties.TouristplaceModel
 
         public string PlaceName { get; set; }
 
-        public string Latitude { get; set; }
+        public long Latitude { get; set; }
 
-        public string Longitude { get; set; }
+        public long Longitude { get; set; }
 
         public int CountryId { get; set; }
+
+        public string PhotoPath { get; set; }
+
+        public string Description { get; set; }
     }
 }

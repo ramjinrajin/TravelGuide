@@ -9,7 +9,7 @@ namespace TravelGuide.Models.Properties.CountryModel
     {
         public int CountryId { get; set; }
         public string CountryName { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
+        public long Latitude { get; set; }
+        public long Longitude { get; set; }
     }
 }

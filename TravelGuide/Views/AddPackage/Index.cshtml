@@ -1,8 +1,8 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
- <br /> 
+<br />
+
 <div class="row">
 
     <h3>Add Package</h3>
@@ -10,18 +10,34 @@
     <p>Add a photo with description of the place</p>
 
     <form method="post" enctype="multipart/form-data">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-            <input type="text" class="form-control" id="TouristPlace" name="TouristPlace" placeholder="Tourist Place">
-        </div>
-        <br />
+
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
             <input type="text" class="form-control" id="Country" name="Country" placeholder="Country">
+            <input type="text" class="form-control" id="Countrylongitude" value="0" name="Countrylongitude" placeholder="Longitude">
+            <input type="text" class="form-control" id="Countrylatitude" value="0" name="Countrylatitude" placeholder="Latitude">
+
+        </div> <br />
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+            <input type="text" class="form-control" id="TouristPlace" name="TouristPlace" placeholder="Tourist Place">
+            <input type="text" class="form-control" id="Placelongitude" value="0" name="Placelongitude" placeholder="Longitude">
+            <input type="text" class="form-control" id="Placelatitude" value="0" name="Placelatitude" placeholder="Latitude">
+        </div><br />
+        <div class="input-group">
+            @*<span class="input-group-addon"><i class="glyphicon glyphicon-cloud"></i></span>*@
+
+        </div><br />
+        <div class="input-group">
+            @*<span class="input-group-addon"><i class="glyphicon glyphicon-cloud"></i></span>*@
+
         </div>
+
+        <br />
+
         <br>
-    
-         
+
+
         <div class="form-group">
             <label for="comment">Description:</label>
             <textarea class="form-control" rows="6" cols="10" id="Description" name="Description"></textarea>
@@ -47,10 +63,101 @@
 
         <br>
         <div class="input-group">
-            <button type="submit" class="btn btn-primary    center-block">Upload</button>
+            <button type="button" id="Uploadbtn" class="btn btn-primary   center-block">Fetch Details</button>
+            <button type="submit" id="Savebtn" style="display:none" class="btn btn-primary   center-block">Upload</button>
         </div>
     </form>
 
 
 
 </div>
+
+
+<!-- To use Geocoding from Google Maps V3 you need to link https://maps.googleapis.com/maps/api/js?sensor=false -->
+<div style="display:none">
+    <h3> Enter an adress and press the button</h3>
+
+    <input id="address" type="text" placeholder="Enter address here" />
+    <button id="btn">Get LatLong</button>
+    <div>
+        <p>
+            Latitude:
+            <input type="text" id="latitude" readonly />
+        </p>
+        <p>
+            Longitude:
+            <input type="text" id="longitude" readonly />
+        </p>
+    </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDfw5eeqnpAfvFbd1CWyKzr0MeNmNtVzI&callback=initMap"
+        async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        console.log('hello');
+        $('#Uploadbtn').click(function () {
+            $('#Savebtn').css('display', 'inline-block');
+            $('#Uploadbtn').css('display', 'none');
+        })
+    });
+    /* This showResult function is used as the callback function*/
+
+    function showResult(result) {
+        document.getElementById('Countrylatitude').value = result.geometry.location.lat();
+        document.getElementById('Countrylongitude').value = result.geometry.location.lng();
+    }
+
+    function showResult2(result) {
+        document.getElementById('Placelatitude').value = result.geometry.location.lat();
+        document.getElementById('Placelongitude').value = result.geometry.location.lng();
+    }
+
+
+
+
+    function getLatitudeLongitude(callback, address) {
+        // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
+        address = address || 'Ferrol, Galicia, Spain';
+        // Initialize the Geocoder
+        geocoder = new google.maps.Geocoder();
+        if (geocoder) {
+            geocoder.geocode({
+                'address': address
+            }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    callback(results[0]);
+                }
+            });
+        }
+    }
+
+    function getLatitudeLongitude2(callback, address) {
+        // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
+        address = address || 'Ferrol, Galicia, Spain';
+        // Initialize the Geocoder
+        geocoder = new google.maps.Geocoder();
+        if (geocoder) {
+            geocoder.geocode({
+                'address': address
+            }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    callback(results[0]);
+                }
+            });
+        }
+    }
+
+    var button = document.getElementById('Uploadbtn');
+
+    button.addEventListener("click", function () {
+        var address = document.getElementById('Country').value;
+        getLatitudeLongitude(showResult, address)
+
+        var address2 = document.getElementById('TouristPlace').value;
+        getLatitudeLongitude2(showResult2, address2)
+    });
+</script>

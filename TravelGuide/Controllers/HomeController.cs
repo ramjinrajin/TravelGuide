@@ -14,5 +14,14 @@ namespace TravelGuide.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Index(FormCollection frmCollection)
+        {
+
+
+
+            return View();
+        }
     }
 }

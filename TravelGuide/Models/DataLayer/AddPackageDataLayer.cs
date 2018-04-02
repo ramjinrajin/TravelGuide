@@ -28,6 +28,8 @@ namespace TravelGuide.Models.DataLayer
                     cmd.Parameters.AddWithValue("@PlaceName", objCountryTourist._Touristplace.PlaceName);
                     cmd.Parameters.AddWithValue("@PlaceLongitude", objCountryTourist._Touristplace.Longitude);
                     cmd.Parameters.AddWithValue("@PlaceLatitude", objCountryTourist._Touristplace.Latitude);
+                    cmd.Parameters.AddWithValue("@PhotoPath", objCountryTourist._Touristplace.PhotoPath);
+                    cmd.Parameters.AddWithValue("@Description", objCountryTourist._Touristplace.Description);
 
                     int Result = (int)cmd.ExecuteScalar();
                     if (Result == (int)ResponseType.Sucess)

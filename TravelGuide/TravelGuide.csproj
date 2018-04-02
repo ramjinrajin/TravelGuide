@@ -38,7 +38,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -92,6 +100,23 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\TourGuideEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TourGuideEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TourGuideEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TourGuideEntityModel.edmx</DependentUpon>
+      <LastGenOutput>TourGuideEntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TourGuideEntityModel.edmx.diagram">
+      <DependentUpon>TourGuideEntityModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\TourGuideEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TourGuideEntityModel.edmx</DependentUpon>
+      <LastGenOutput>TourGuideEntityModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -111,6 +136,27 @@
     <Compile Include="Models\Properties\CountryModel\Country.cs" />
     <Compile Include="Models\Properties\CountryTouristModel\CountryTourist.cs" />
     <Compile Include="Models\Properties\TouristplaceModel\Touristplace.cs" />
+    <Compile Include="Models\tblCountry.cs">
+      <DependentUpon>TourGuideEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblTouristplace.cs">
+      <DependentUpon>TourGuideEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TourGuideEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourGuideEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TourGuideEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourGuideEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TourGuideEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourGuideEntityModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +169,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -131,7 +178,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Home\" />
+    <Folder Include="PackageFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

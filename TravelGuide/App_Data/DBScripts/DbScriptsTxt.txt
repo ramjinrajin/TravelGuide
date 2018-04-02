@@ -8,6 +8,7 @@
 )
 
 
+
 CREATE Table tblTouristplace 
 (
  TouristplaceId int Identity(1,1) Primary Key,
@@ -15,6 +16,7 @@ CREATE Table tblTouristplace
  Latitude varchar(100),
  Longitude varchar(100),
  CountryId int,
+ PhotoPath varchar(100)
  Foreign Key(CountryId) References tblCountry(CountryId)
 )
 
@@ -27,7 +29,8 @@ CREATE Proc SpAddPackage
 @CountryLongitude varchar(100),
 @PlaceName  varchar(100),
 @PlaceLongitude varchar(100),
-@PlaceLatitude  varchar(100)
+@PlaceLatitude  varchar(100),
+@PhotoPath varchar(100)
 )
 AS
 BEGIN
@@ -43,7 +46,7 @@ ELSE
    
     INSERT INTO  tblCountry(CountryName,Latitude,Longitude) VALUES (@CountryName,@CountryLatitude,@CountryLongitude)
 	SET @CountryId=SCOPE_IDENTITY();
-	INSERT INTO  tblTouristplace(PlaceName,Latitude,Longitude,CountryId) VALUES (@PlaceName,@PlaceLatitude,@PlaceLongitude,@CountryId)
+	INSERT INTO  tblTouristplace(PlaceName,Latitude,Longitude,CountryId,PhotoPath) VALUES (@PlaceName,@PlaceLatitude,@PlaceLongitude,@CountryId,@PhotoPath)
 	SELECT 1 AS RESPONSE;
  END
 END
