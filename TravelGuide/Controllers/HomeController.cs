@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TravelGuide.Models.Properties.SearchModel;
  
 
 namespace TravelGuide.Controllers
@@ -19,9 +20,17 @@ namespace TravelGuide.Controllers
         public ActionResult Index(FormCollection frmCollection)
         {
 
+            Search objSearch = new Search
+            {
+                Source = frmCollection["Source"].ToString(),
+                Designation = frmCollection["Designation"].ToString()
+            };
 
 
-            return View();
+
+
+
+            return RedirectToAction("Index", "Iterate", objSearch);
         }
     }
 }

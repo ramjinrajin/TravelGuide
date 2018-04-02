@@ -98,6 +98,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="PackageFiles\beas-river--469334207.jpg" />
+    <Content Include="PackageFiles\chandni-chowk--966381976.jpg" />
+    <Content Include="PackageFiles\Goa-beach-Calangute_beach-1024x540.jpg" />
+    <Content Include="PackageFiles\img277.jpg" />
+    <Content Include="PackageFiles\IMG_6241.JPG" />
+    <Content Include="PackageFiles\Indien - Agra - Rotes Fort aus dem 16. Jahrhundert_56.jpg" />
+    <Content Include="PackageFiles\KeralaTour011_zps0ff9daa5.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\TourGuideEntityModel.edmx">
@@ -127,14 +134,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddPackageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IterateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="infrastructure\ConnectMSSql.cs" />
     <Compile Include="infrastructure\Response.cs" />
     <Compile Include="Models\DataLayer\AddPackageDataLayer.cs" />
+    <Compile Include="Models\DataLayer\IterateDataLayer.cs" />
     <Compile Include="Models\Properties\CountryModel\Country.cs" />
     <Compile Include="Models\Properties\CountryTouristModel\CountryTourist.cs" />
+    <Compile Include="Models\Properties\SearchModel\Search.cs" />
+    <Compile Include="Models\Properties\SearchModel\SearchResult.cs" />
     <Compile Include="Models\Properties\TouristplaceModel\Touristplace.cs" />
     <Compile Include="Models\tblCountry.cs">
       <DependentUpon>TourGuideEntityModel.tt</DependentUpon>
@@ -170,6 +181,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Iterate\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,9 +189,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PackageFiles\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

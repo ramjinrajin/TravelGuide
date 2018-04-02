@@ -20,7 +20,10 @@
                 @Html.ActionLink("Travel Guide", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="~/Home/Index">Home</a></li>
+                    <li><a href="~/AddPackage/Index">Add Package</a></li>
+                    <li><a href="~/Profile/Index">Profile</a></li>
                 </ul>
             </div>
         </div>
@@ -28,12 +31,12 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Travel Guide</p>
-        </footer>
+    
     </div>
-
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Travel Guide</p>
+    </footer>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
